@@ -5,20 +5,21 @@
 
 using namespace std;
 
-struct proveedores
-{
-    char nombre[30];
-    char telefono[10];
-    char direccion[15];
-    char empresa[10];
-};proveedores prov[c_reg];
-
 struct producto
 {
     int c_vendida;
     int p_unitario;
     int importe;
-};producto prod[c_reg];
+};
+
+struct proveedores
+{
+    char nombre[10];
+    char telefono[10];
+    char direccion[10];
+    char empresa[10];
+    producto prod[c_reg];
+};proveedores prov[c_reg];
 
 char c_producto[c_reg][10];
 
@@ -49,13 +50,12 @@ int main()
     cout<<"\nDigite Nombre de Producto: ";
         cin>>c_producto[i];
     cout<<"\nPrecio Unitario: ";
-        cin>>prod[i].p_unitario;
+        cin>>prov[i].prod[i].p_unitario;
     cout<<"\nCantidad Vendida: ";
-        cin>>prod[i].c_vendida;
-        prod[i].importe=(prod[i].p_unitario)*(prod[i].c_vendida);
+        cin>>prov[i].prod[i].c_vendida;
+        prov[i].prod[i].importe=(prov[i].prod[i].p_unitario)*(prov[i].prod[i].c_vendida);
     cout<<"\n***********************************************\n";
     }
-    system("cls");
 
     cout<<"\nEl registro de proveedores es:\n\n";
     for(int i=0;i<c_reg;i++){
@@ -65,27 +65,26 @@ int main()
         cout<<"\nTelefono: "<<prov[i].telefono;
         cout<<"\nDireccion: "<<prov[i].direccion;
         cout<<"\nEmpresa: "<<prov[i].empresa;
-        cout<<"\nImporte: "<<prod[i].importe;
-
+        cout<<"\nImporte: "<<prov[i].prod[i].importe;
     }
 
-    mayor = prod[0].p_unitario;
-    menor = prod[0].p_unitario;
+    mayor = prov[0].prod[0].p_unitario;
+    menor = prov[0].prod[0].p_unitario;
 
     for (int b=0; b<c_reg; b++){
-        if (prod[b].p_unitario> mayor){
-            mayor=prod[b].p_unitario;x=b;
+        if (prov[b].prod[b].p_unitario> mayor){
+            mayor=prov[b].prod[b].p_unitario;x=b;
         }
     }
 
     for (int d=0; d<c_reg; d++){
-        if (prod[d].p_unitario< menor){
-            menor=prod[d].p_unitario;y=d;
+        if (prov[d].prod[d].p_unitario< menor){
+            menor=prov[d].prod[d].p_unitario;y=d;
         }
     }
 
-        cout<<"El provedor mas caro es : "<<prov[x].nombre;
-        cout<<"El provedor mas barato es : "<<prov[y].nombre;
+        cout<<"\nEl provedor mas caro es : "<<prov[1].nombre;
+        cout<<"\nEl provedor mas barato es : "<<prov[1].nombre;
 
         cout<<"\n***********************************************\n";
 
@@ -94,7 +93,6 @@ int main()
         cout<<"\n***********************************************\n";
         cout<<"Proveedor: "<<prov[i].nombre;
         cout<<"Producto: "<<c_producto[i];
-
     }
     return 0;
     system("pause");
