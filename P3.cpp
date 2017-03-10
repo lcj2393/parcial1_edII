@@ -28,10 +28,6 @@ void pedir_datos(){
 	for(int i = 0; i < nColumnas; i++){
 		p_matriz[i] = (int *)malloc(nColumnas * sizeof(int ));
 	}
-	if(p_matriz == NULL){
-		printf("\nError Reservando Memoria\n");
-		exit (1);
-	}else{
         printf("\n**********************************************\n");
 		printf("\t\t\nLLENADO DE MATRIZ \n");
 		for(int f = 0; f < nFilas; f++){
@@ -40,7 +36,6 @@ void pedir_datos(){
 				scanf("%d", &(*(*(p_matriz+c)+f)));
 			}
 		}
-	}
 }
 
 void imprimir_datos(){
