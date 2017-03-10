@@ -78,8 +78,8 @@ void mult_matriz(){
 		for(int a=0; a<nFilas; a++){
 			for(int b=0; b<nColumnas; b++){
 				(*(*(p_matriz_mult+b)+a))=0;
-				for(int c=0;c<nColumnas;c++){
-                    (*(*(p_matriz_mult+b)+a))=(*(*(p_matriz_mult+b)+a)) + ((*(*(p_matriz1+b)+c)) * (*(*(p_matriz2+c)+b)));
+				for(int c=0;c<nFilas;c++){
+                    (*(*(p_matriz_mult+b)+a))=(*(*(p_matriz_mult+b)+a)) + ((*(*(p_matriz1+a)+c)) * (*(*(p_matriz2+c)+b)));
 				}
 			}
 		}

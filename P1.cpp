@@ -14,9 +14,9 @@ struct producto
 
 struct proveedores
 {
-    char nombre[10];
+    char nombre[15];
     char telefono[10];
-    char direccion[10];
+    char direccion[15];
     char empresa[10];
     producto prod[c_reg];
 };proveedores prov[c_reg];
@@ -30,15 +30,15 @@ int main()
     {
     cout<<"\n\t\tREGISTRO PROVEEDOR "<<i+1<<"\n";
     cout<<"\n***********************************************\n";
-    cout<<"\nDigite Nombre: ";
-        cin.getline(prov[i].nombre,30);
+    cout<<"\nDigite Nombre Proveedor: ";
+        cin>>prov[i].nombre;
         cin.ignore(256,'\n');
 
-    cout<<"\nDigite Telefono: ";
+    cout<<"\nDigite Telefono Proveedor: ";
         cin>>prov[i].telefono;
         cin.ignore(256,'\n');
 
-    cout<<"\nDigite Direccion: ";
+    cout<<"\nDigite Direccion Proveedor: ";
         cin>>prov[i].direccion;
         cin.ignore(256,'\n');
 
@@ -72,28 +72,29 @@ int main()
     menor = prov[0].prod[0].p_unitario;
 
     for (int b=0; b<c_reg; b++){
-        if (prov[b].prod[b].p_unitario> mayor){
+        if (prov[b].prod[b].p_unitario>= mayor){
             mayor=prov[b].prod[b].p_unitario;x=b;
         }
     }
 
     for (int d=0; d<c_reg; d++){
-        if (prov[d].prod[d].p_unitario< menor){
+        if (prov[d].prod[d].p_unitario <= menor){
             menor=prov[d].prod[d].p_unitario;y=d;
         }
     }
 
-        cout<<"\nEl provedor mas caro es : "<<prov[1].nombre;
-        cout<<"\nEl provedor mas barato es : "<<prov[1].nombre;
+        cout<<"\nEl provedor mas caro es : "<<prov[x].nombre<<" con precio "<<mayor;
+        cout<<"\nEl provedor mas barato es : "<<prov[y].nombre<<" con precio "<<menor;
 
         cout<<"\n***********************************************\n";
 
     cout<<"\nEl registro de productos es:\n\n";
     for(int i=0;i<c_reg;i++){
         cout<<"\n***********************************************\n";
-        cout<<"Proveedor: "<<prov[i].nombre;
-        cout<<"Producto: "<<c_producto[i];
+        cout<<"\nProveedor: "<<prov[i].nombre;
+        cout<<"\nProducto: "<<c_producto[i];
     }
-    return 0;
+    cout<<"\n\n";
     system("pause");
+    return 0;
 }

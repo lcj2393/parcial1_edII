@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void pedir_datos();
+void llenar_datos();
 void imprimir_datos();
 
-int nFilas, nColumnas, **p_matriz;
+int nFilas, nColumnas, nInicio **p_matriz;
 
 int main(){
-	pedir_datos();
+	llenar_datos();
 	imprimir_datos();
 	free(p_matriz);
 	printf("\n\n");
@@ -15,7 +15,7 @@ int main(){
 	return 0;
 }
 
-void pedir_datos(){
+void llenar_datos(){
 
 	printf("\t\tTAMAÑO DE MATRIZ\n");
 	printf("\nIngrese Cantidad de Filas: ");
@@ -23,6 +23,9 @@ void pedir_datos(){
 
 	printf("\nIngrese Cantidad de Columnas: ");
 	scanf("%d", &nColumnas);
+
+	printf("\nIngrese Numero de Inicio para llenar la matriz: ");
+	scanf("%d", &nInicio);
 
 	p_matriz = (int **)malloc(nFilas * sizeof(int *));
 	for(int i = 0; i < nColumnas; i++){
@@ -32,12 +35,10 @@ void pedir_datos(){
 		printf("\nError Reservando Memoria\n");
 		exit (1);
 	}else{
-        printf("\n**********************************************\n");
-		printf("\t\t\nLLENADO DE MATRIZ \n");
+
 		for(int f = 0; f < nFilas; f++){
 			for(int c = 0; c < nColumnas; c++){
-				printf("\nIngrese dato para posicion [%d,%d]: ", f, c);
-				scanf("%d", &(*(*(p_matriz+c)+f)));
+				&(*(*(p_matriz+c)+f)))=;
 			}
 		}
 	}
